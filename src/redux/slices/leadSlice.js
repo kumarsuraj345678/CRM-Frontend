@@ -18,10 +18,20 @@ export const fetchLeads = createAsyncThunk("leads/getLeads", async () => {
   return res.data;
 });
 
-export const fetchMyLeads = createAsyncThunk("leads/getMyLeads", async () => {
-  const res = await API.get("/leads/my");
-  return res.data;
-});
+export const fetchMyLeads = createAsyncThunk(
+  "leads/getMyLeads",
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("employeeToken");
+      if (!token) return [];
+
+      const res = await API.get("/leads/my");
+      return res.data;
+    } catch (err) {
+      return rejectWithValue(err.response?.data);
+    }
+  },
+);
 
 export const getMySchedule = createAsyncThunk(
   "leads/getMySchedule",

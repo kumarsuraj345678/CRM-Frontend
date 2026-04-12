@@ -15,9 +15,13 @@ const MobileSchedule = () => {
   const dispatch = useDispatch();
   const { schedule = [] } = useSelector((state) => state.leads);
 
+  const token = localStorage.getItem("employeeToken");
+
   useEffect(() => {
-    dispatch(getMySchedule());
-  }, [dispatch]);
+    if (token) {
+      dispatch(getMySchedule());
+    }
+  }, [token, dispatch]);
 
   return (
     <>

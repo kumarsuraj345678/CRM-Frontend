@@ -48,11 +48,13 @@ const MobileLeads = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch(fetchMyLeads());
-  }, [dispatch]);
+  const token = localStorage.getItem("employeeToken");
 
-  console.log(leads);
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchMyLeads());
+    }
+  }, [token, dispatch]);
 
   return (
     <>
