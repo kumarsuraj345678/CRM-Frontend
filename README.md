@@ -1,70 +1,195 @@
-# Getting Started with Create React App
+# 🚀 Canova CRM (MERN Stack)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack **Customer Relationship Management (CRM)** system built using the **MERN stack** with role-based access for Admin and Employees, real-time lead management, scheduling, and analytics dashboard.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌐 Live Demo
 
-### `npm start`
+* 🔗 Frontend: https://crm-frontend-theta-ruddy.vercel.app
+* 🔗 Backend API: https://crm-backend-1zni.onrender.com
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 👤 Demo Credentials
 
-### `npm test`
+### Admin
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+Email: admin@gmail.com
+Password: admin@gmail.com
+```
 
-### `npm run build`
+### Employee
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+Email: employee@gmail.com
+Password: same as email
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ✨ Features
 
-### `npm run eject`
+### 🔐 Authentication & Authorization
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* JWT-based authentication
+* Role-based access (Admin / Employee)
+* Secure API routes
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🧑‍💼 Admin Panel (Desktop)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Employee management (Create, Delete, Update)
+* Lead assignment system
+* Dashboard analytics:
 
-## Learn More
+  * Total leads
+  * Sales data
+  * Activities tracking
+* CSV upload for bulk leads
+* Pagination, filtering, and search
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 📱 Employee Panel (Mobile)
 
-### Code Splitting
+* View assigned leads
+* Update lead status (Hot / Warm / Cold)
+* Schedule calls & follow-ups
+* Personal schedule view
+* Profile management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+### 📊 Dashboard
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Sales insights
+* Activity logs
+* Employee performance stats
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### ⚙️ Core Functionalities
 
-### Advanced Configuration
+* Lead assignment logic
+* Real-time updates using Redux Toolkit
+* RESTful API architecture
+* Optimized MongoDB queries
+* Error handling & validations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+* React.js
+* Redux Toolkit
+* React Router
+* CSS / Custom UI
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Frontend: Vercel
+* Backend: Render
+* Database: MongoDB Atlas
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📁 Project Structure
+
+```
+CRM/
+├── crm-frontend/
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│   └── redux/
+│
+├── crm-backend/
+│   ├── controllers/
+│   ├── routes/
+│   ├── models/
+│   └── middleware/
+```
+
+---
+
+## 🚀 Installation & Setup
+
+### 1. Clone the repository
+
+```
+git clone https://github.com/your-username/your-repo-name.git
+```
+
+---
+
+### 2. Setup Backend
+
+```
+cd crm-backend
+npm install
+npm run dev
+```
+
+---
+
+### 3. Setup Frontend
+
+```
+cd crm-frontend
+npm install
+npm start
+```
+
+---
+
+## 🧠 Key Learnings
+
+* Full-stack application architecture
+* Authentication & authorization flow
+* Handling async state with Redux Toolkit
+* Deployment challenges (CORS, ENV, API routing)
+* Debugging real-world production issues
+
+---
+
+## 🧪 Future Improvements
+
+* 🔔 Toast notifications
+* 📈 Advanced analytics charts
+* 🌙 Dark mode
+* 🔄 Real-time updates (WebSockets)
+* 📦 Docker containerization
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first.
+
+---
+
+## 📜 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+## 💡 Author
+
+**Suraj Kumar**
+Full Stack Developer
+
+---
+
+⭐ If you like this project, give it a star on GitHub!
