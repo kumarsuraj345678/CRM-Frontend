@@ -1,0 +1,50 @@
+.context-menu {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 10px;
+  width: 140px;
+  z-index: 1000;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+  transform: scale(0.95);
+  opacity: 0;
+  animation: fadeInScale 0.15s ease forwards;
+}
+
+@keyframes fadeInScale {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.menu-item:hover {
+  background: #f3f4f6;
+}
+
+.menu-icon {
+  width: 28px;
+  height: 28px;
+  font-size: 28px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+}

@@ -1,0 +1,41 @@
+.type-context-menu {
+  position: fixed;
+  z-index: 1000;
+  background: white;
+  border-radius: 12px;
+  padding: 8px;
+  width: 80px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.type-menu-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.menu-btn {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.menu-btn.hot {
+  background: #f97316;
+  color: white;
+}
+
+.menu-btn.warm {
+  background: #facc15;
+}
+
+.menu-btn.cold {
+  background: #07eff7;
+}

@@ -1,0 +1,55 @@
+.mobile-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 16px;
+  border-radius: 0 0 20px 20px;
+}
+
+.header-top {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #facc15;
+}
+
+.header-bottom p {
+  font-size: 13px;
+}
+
+.header-bottom h2 {
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+.header-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-back h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
+  display: block;
+}
+
+.back-icon {
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -1;
+}
+
+.mobile-header.scrolled {
+  box-shadow: 04px 10px rgba(0.15);
+}

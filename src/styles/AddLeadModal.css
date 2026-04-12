@@ -1,0 +1,103 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  max-width: 560px;
+  width: 80%;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.modal-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.lead-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.lead-form-group label {
+  font-size: 14px;
+  color: #6b6b6b;
+  margin-bottom: 6px;
+}
+
+.lead-form-group input {
+  width: 80%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #dcdcdc;
+  font-size: 14px;
+  outline: none;
+}
+
+.lead-form-group input:focus {
+  border-color: black;
+  background: #fff;
+}
+
+.lead-form-group input:hover {
+  border-color: #bbb;
+}
+
+.lead-form-group input[type="date"] {
+  padding-right: 10px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+.lead-save-btn {
+  width: 160px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #d9d9d9;
+  color: #636060;
+  border: none;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.save-btn:hover {
+  background: #d1d5db;
+}

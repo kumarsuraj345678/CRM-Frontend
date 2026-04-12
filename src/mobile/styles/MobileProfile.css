@@ -1,0 +1,61 @@
+.profile-page {
+  padding: 16px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.input-group input {
+  height: 42px;
+  border: 1px solid #9ca3af;
+  border-radius: 10px;
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-group input:disabled {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+.profile-actions > .save-btn {
+  margin-right: 10px;
+  height: 40px;
+  width: 140px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.profile-actions > .logout-btn {
+  height: 40px;
+  width: 140px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+}

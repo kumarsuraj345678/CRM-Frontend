@@ -1,0 +1,74 @@
+.context-menu {
+  position: fixed;
+  z-index: 1000;
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 16px;
+  width: 180px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.menu-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.dropdown {
+  background: #f3f4f6;
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+}
+
+.arrow {
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  margin-top: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.dropdown-item {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.dropdown-item.active {
+  background: #cfd3d8;
+  font-weight: 600;
+}
+
+.dropdown-item:hover {
+  background: #d1d5db;
+}
+
+.context-save-btn {
+  margin: 14px auto 0;
+  display: block;
+  width: 85%;
+  padding: 10px;
+  border: none;
+  background: #363636;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
