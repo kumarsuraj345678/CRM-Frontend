@@ -12,12 +12,10 @@ import {
   fetchActivities,
   fetchEmployeeStats,
 } from "../../redux/slices/dashboardSlice";
-import { Navigate, useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
   const { stats, salesData, activities } = useSelector(
     (state) => state.dashboard,
   );
