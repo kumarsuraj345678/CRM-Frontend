@@ -17,7 +17,7 @@ A full-stack **Customer Relationship Management (CRM)** system built using the *
 
 ```
 Email: admin@gmail.com
-Password: admin123.com
+Password: admin123
 ```
 
 ### Employee
