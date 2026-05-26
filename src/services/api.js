@@ -1,13 +1,11 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://crm-backend-1zni.onrender.com",
+  baseURL: "https://crm-backend-1zni.onrender.com/api",
 });
 
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
-
-  console.log("TOKEN SENT:", token); // 🔍 debug
 
   if (token) {
     req.headers.Authorization = `Bearer ${token}`;
@@ -16,4 +14,4 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-export default API
+export default API;
