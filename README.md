@@ -8,6 +8,7 @@ A full-stack **Customer Relationship Management (CRM)** system built using the *
 
 * 🔗 Frontend: https://crm-frontend-theta-ruddy.vercel.app
 * 🔗 Backend API: https://crm-backend-1zni.onrender.com
+* 🔗 Employee Login: https://crm-frontend-theta-ruddy.vercel.app/m/login
 
 ---
 
@@ -17,7 +18,7 @@ A full-stack **Customer Relationship Management (CRM)** system built using the *
 
 ```
 Email: admin@gmail.com
-Password: admin@gmail.com
+Password: admin123
 ```
 
 ### Employee
