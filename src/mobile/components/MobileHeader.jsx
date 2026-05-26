@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
-import "../styles/MobileHeader.css";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import "../styles/MobileHeader.css";
 
-const MobileHeader = ({ type = "home", title = "", name = "" }) => {
+const MobileHeader = ({ type = "home", title = "" }) => {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
 
-  const reduxUser = useSelector((state) => state.authReducer.user);
+  const reduxUser = useSelector((state) => state?.auth?.user);
+
   const storedUser = JSON.parse(localStorage.getItem("user") || "null");
 
   const user = reduxUser || storedUser;
@@ -24,7 +24,6 @@ const MobileHeader = ({ type = "home", title = "", name = "" }) => {
 
   const getGreeting = () => {
     const hour = new Date().getHours();
-
     if (hour < 12) return "Good Morning";
     if (hour < 17) return "Good Afternoon";
     return "Good Evening";
@@ -43,7 +42,7 @@ const MobileHeader = ({ type = "home", title = "", name = "" }) => {
           <>
             <p>{getGreeting()}</p>
             <h2>
-              {user?.firstName} {user?.lastName}
+              {user?.firstName || ""} {user?.lastName || ""}
             </h2>
           </>
         ) : (

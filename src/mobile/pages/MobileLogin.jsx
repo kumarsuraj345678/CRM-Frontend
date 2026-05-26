@@ -17,12 +17,12 @@ const MobileLogin = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user") || "null");
+  const token = localStorage.getItem("token");
 
-    if (storedUser && storedUser.role === "employee") {
-      navigate("/m");
-    }
-  }, [navigate]);
+  if (token) {
+    navigate("/m");
+  }
+}, [navigate]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -43,8 +43,9 @@ const MobileLogin = () => {
         alert("Only employees can login");
         return;
       }
-      localStorage.setItem("employeeToken", res.data.token);
-      localStorage.setItem("employee", JSON.stringify(res.data.user));
+      localStorage.clear();
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
 
       dispatch(setUser(res.data.user));
 

@@ -22,9 +22,6 @@ export const fetchMyLeads = createAsyncThunk(
   "leads/getMyLeads",
   async (_, { rejectWithValue }) => {
     try {
-      const token = localStorage.getItem("employeeToken");
-      if (!token) return [];
-
       const res = await API.get("/leads/my");
       return res.data;
     } catch (err) {

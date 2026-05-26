@@ -14,14 +14,13 @@ const MobileSchedule = () => {
 
   const dispatch = useDispatch();
   const { schedule = [] } = useSelector((state) => state.leads);
+const reduxUser = useSelector((state) => state?.auth?.user);
 
-  const token = localStorage.getItem("employeeToken");
-
-  useEffect(() => {
-    if (token) {
-      dispatch(getMySchedule());
-    }
-  }, [token, dispatch]);
+useEffect(() => {
+  if (reduxUser) {
+    dispatch(getMySchedule());
+  }
+}, [reduxUser, dispatch]);
 
   return (
     <>

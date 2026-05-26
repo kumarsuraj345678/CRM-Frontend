@@ -3,13 +3,10 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const MobileProtectedRoute = ({ children }) => {
-  const reduxUser = useSelector((state) => state.authReducer.user);
+  const user = useSelector((state) => state?.auth?.user);
+  const token = localStorage.getItem("token");
 
-  const storedUser = JSON.parse(localStorage.getItem("user") || "null");
-
-  const user = reduxUser || storedUser;
-
-  if (!user || user.role !== "employee") {
+  if (!user || !token) {
     return <Navigate to="/m/login" replace />;
   }
 

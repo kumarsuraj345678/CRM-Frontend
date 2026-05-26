@@ -27,10 +27,11 @@ const Login = () => {
         return;
       }
       localStorage.clear();
-      localStorage.setItem("adminToken", data.token);
-      localStorage.setItem("admin", JSON.stringify(data.user));
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
       dispatch(setUser(res.data.user));
       navigate("/dashboard");
+      console.log("FORM DATA:", form);
     } catch (err) {
       alert(err.response?.data?.message || "Login failed");
     }
@@ -48,6 +49,7 @@ const Login = () => {
           <label>Email</label>
           <input
             name="email"
+            value={form.email}
             placeholder="Enter your email"
             onChange={handleChange}
           />
@@ -58,6 +60,7 @@ const Login = () => {
           <input
             type="password"
             name="password"
+            value={form.password}
             placeholder="Enter your password"
             onChange={handleChange}
           />

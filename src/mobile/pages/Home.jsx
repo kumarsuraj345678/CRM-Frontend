@@ -5,7 +5,7 @@ import API from "../../services/api";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const { user } = useSelector((state) => state.authReducer);
+  const user = useSelector((state) => state?.auth?.user);
   const userId = user?._id;
   const [attendance, setAttendance] = useState(null);
   const [breakData, setBreakData] = useState(null);
@@ -54,22 +54,26 @@ const Home = () => {
     }
   }, [userId, fetchTodayStatus]);
 
-  const handleCheckIn = async () => {
-    try {
-      const { data } = await API.post(
-        "/attendance/toggle",
-        {},
-        {
-          headers: { userid: userId },
-        },
-      );
-
-      setAttendance(data);
-    } catch (err) {
-      alert(err.response?.data?.message);
-    } finally {
+ const handleCheckIn = async () => {
+  try {
+    if (breakData?.breakStart && !breakData?.breakEnd) {
+      alert("Please end your break before checking out");
+      return;
     }
-  };
+
+    const { data } = await API.post(
+      "/attendance/toggle",
+      {},
+      {
+        headers: { userid: userId },
+      }
+    );
+
+    setAttendance(data);
+  } catch (err) {
+    alert(err.response?.data?.message);
+  }
+};
 
   const fetchBreakData = useCallback(async () => {
     try {

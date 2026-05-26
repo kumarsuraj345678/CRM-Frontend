@@ -13,7 +13,7 @@ import StatusContextMenu from "../components/StatusContextMenu";
 
 import { useDispatch } from "react-redux";
 import API from "../../services/api";
-import { fetchMyLeads, updateLeadLocal } from "../../redux/slices/leadSlice";
+import { fetchLeads, fetchMyLeads, updateLeadLocal } from "../../redux/slices/leadSlice";
 
 const MobileLeads = () => {
   const dispatch = useDispatch();
@@ -47,14 +47,17 @@ const MobileLeads = () => {
       alert(error.response?.data?.message || "Update failed");
     }
   };
+  const reduxUser = useSelector((state) => state?.auth?.user);
 
-  const token = localStorage.getItem("employeeToken");
-
-  useEffect(() => {
-    if (token) {
-      dispatch(fetchMyLeads());
-    }
-  }, [token, dispatch]);
+ useEffect(() => {
+  if (reduxUser) {
+    dispatch(fetchMyLeads())
+      .unwrap()
+      .catch(() => {
+        dispatch(fetchLeads());
+      });
+  }
+}, [reduxUser, dispatch]);
 
   return (
     <>

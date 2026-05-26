@@ -11,7 +11,7 @@ const MobileProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { user } = useSelector((state) => state.authReducer);
+  const user  = useSelector((state) => state?.auth?.user);
 
   const [form, setForm] = useState({
     firstName: "",

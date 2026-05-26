@@ -9,9 +9,7 @@ import { setUser } from "../../redux/slices/authSlice";
 const Settings = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const auth = useSelector((state) => state.authReducer || {});
-  const user = auth.user;
-
+  const user = useSelector((state) => state.auth.user);
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -32,9 +30,24 @@ const Settings = () => {
     }
   }, [user]);
 
+  useEffect(() => {
+    if (!user) {
+      const timer = setTimeout(() => {
+        navigate("/login");
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [user, navigate]);
+
   if (!user) {
-    return <div>Loading...</div>;
+    return (
+      <Layout>
+        <div style={{ padding: "20px" }}>Redirecting to login...</div>
+      </Layout>
+    );
   }
+
   if (user.role !== "admin") {
     return (
       <Layout>
@@ -42,6 +55,7 @@ const Settings = () => {
       </Layout>
     );
   }
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setChanged(true);
@@ -66,12 +80,12 @@ const Settings = () => {
         updateCount++;
       }
 
-      if (password || confirmPassword) {
-        if (!password || !confirmPassword) {
-          alert("Both password fields required");
-          return;
-        }
-
+      if (
+        password &&
+        confirmPassword &&
+        password !== "**********" &&
+        confirmPassword !== "**********"
+      ) {
         if (password !== confirmPassword) {
           alert("Passwords do not match");
           return;
@@ -94,7 +108,6 @@ const Settings = () => {
           userid: userId,
         },
       });
-      dispatch(setUser(res.data.user));
 
       alert("Updated successfully");
       dispatch(setUser(res.data.user));

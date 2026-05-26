@@ -6,7 +6,7 @@ import searchReducer from "./slices/searchSlice";
 import authReducer from "./slices/authSlice";
 export const store = configureStore({
   reducer: {
-    authReducer: authReducer,
+    auth: authReducer,
     dashboard: dashboardReducer,
     employees: employeeReducer,
     leads: leadReducer,

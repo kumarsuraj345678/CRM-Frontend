@@ -13,8 +13,20 @@ import MobileLeads from "./mobile/pages/MobileLeads";
 import MobileSchedule from "./mobile/pages/MobileSchedule";
 import MobileProfile from "./mobile/pages/MobileProfile";
 import MobileProtectedRoute from "./mobile/components/MobileProtectedRoute";
+import { useEffect } from "react";
+import { setUser } from "./redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user") || "null");
+
+    if (user) {
+      dispatch(setUser(user));
+    }
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Routes>
