@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
@@ -14,26 +14,46 @@ const Login = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (token && user?.role === "admin") {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
+
   const handleLogin = async () => {
     try {
+      setLoading(true);
+
       const res = await API.post("/auth/login", form);
       const data = res.data;
+
       if (data.user.role !== "admin") {
         alert("Only admin allowed here");
+        setLoading(false);
         return;
       }
+
       localStorage.clear();
+
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-      dispatch(setUser(res.data.user));
+
+      dispatch(setUser(data.user));
+
       navigate("/dashboard");
-      console.log("FORM DATA:", form);
     } catch (err) {
       alert(err.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -66,8 +86,8 @@ const Login = () => {
           />
         </div>
 
-        <button className="login-btn" onClick={handleLogin}>
-          Login
+        <button className="login-btn" onClick={handleLogin} disabled={loading}>
+          {loading ? "Loading..." : "Login"}
         </button>
       </div>
     </div>
